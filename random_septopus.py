@@ -14,18 +14,23 @@ DRINKS = [
     [40, 0, 0, 0, 140, 0, 0],  # 40g Vodka + 140g Makava
     [40, 0, 0, 0, 0, 0, 140],  # 40g Vodka + 140g Orange
     [0, 40, 0, 0, 0, 0, 140],  # 40g Gin + 140g Orange
+    [0, 40, 0, 0, 140, 0, 0],  # 40g Gin + 140g Makava
     [40, 0, 0, 0, 0, 30, 110],  # 40g Vodka + 30g Cranberry + 110g Orange
-    [0, 0, 0, 150, 0, 30, 0],  # 150g Apfel + 30g Cranberry
-    [0, 0, 0, 0, 0, 40, 120],  # 40g Cranberry + 120g Orange
+    [0, 0, 0, 150, 0, 30, 0],  # 150g Apple + 30g Cranberry
+    [0, 0, 0, 0, 0, 40, 140],  # 40g Cranberry + 140g Orange
     [0, 0, 0, 180, 0, 0, 0],  # Water
+    [40, 0, 0, 140, 0, 0, 0],  # 40g Vodka + 140g Water
+    [30, 30, 30, 0, 30, 30, 30],  # A bit of everything
     [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 40, 0, 0, 0, 30, 110],  # 40g Gin + 30g Cranberry + 110g Orange
     [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 0, 0, 40, 140],  # 40g Cranberry + 140g Orange
+    [40, 0, 0, 0, 0, 30, 110],  # 40g Vodka + 30g Cranberry + 110g Orange
     [0, 0, 0, 180, 0, 0, 0],  # Water
-    [0, 0, 0, 180, 0, 0, 0],  # Water
-    [0, 0, 0, 180, 0, 0, 0],  # Water
-    [0, 0, 0, 180, 0, 0, 0],  # Water
-    [0, 0, 0, 180, 0, 0, 0],  # Water
-    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [40, 0, 0, 140, 0, 0, 0],  # 40g Vodka + 140g Apple
+    [0, 40, 0, 140, 0, 0, 0],  # 40g Gin + 140g Apple
+    [0, 40, 0, 0, 0, 0, 140],  # 40g Gin + 140g Orange
+    [0, 40, 0, 0, 0, 140, 0],  # 40g Gin + 140g Cranberry
 ]
 
 
