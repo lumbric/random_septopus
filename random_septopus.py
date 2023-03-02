@@ -9,7 +9,7 @@ serial_port = "/dev/ttyACM0"
 
 def send(serial_connection, command, *args):
     command_with_args = command + " " + " ".join(str(n) for n in args)
-    serial_connection.write((command_with_args + "\r\n").encode('ISO-8859-1'))
+    serial_connection.write((command_with_args + "\r\n").encode("ISO-8859-1"))
     logging.debug("Sent: %s \\r\\n" % command_with_args)
     serial_connection.flushInput()
 
@@ -57,7 +57,7 @@ def main_loop(serial_connection):
             last_idle_logmsg = time.time()
 
         try:
-            serial_buffer += serial_connection.read().decode('ISO-8859-1')
+            serial_buffer += serial_connection.read().decode("ISO-8859-1")
             commands = serial_buffer.split("\r\n")
             serial_buffer = commands.pop()
 
