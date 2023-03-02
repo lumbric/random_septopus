@@ -1,10 +1,31 @@
 import time
 import logging
 import serial
+import datetime
 
 import logging_config
 
 serial_port = "/dev/ttyACM0"
+
+
+DRINKS = [
+    # Bottles: Vodka, Gin, Water, Apple,  Makava, Cranberry, Orange
+    [40, 0, 0, 0, 140, 0, 0],  # 40g Vodka + 140g Makava
+    [40, 0, 0, 0, 0, 0, 140],  # 40g Vodka + 140g Orange
+    [0, 40, 0, 0, 0, 0, 140],  # 40g Gin + 140g Orange
+    [40, 0, 0, 0, 0, 30, 110],  # 40g Vodka + 30g Cranberry + 110g Orange
+    [0, 0, 0, 150, 0, 30, 0],  # 150g Apfel + 30g Cranberry
+    [0, 0, 0, 0, 0, 40, 120],  # 40g Cranberry + 120g Orange
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+    [0, 0, 0, 180, 0, 0, 0],  # Water
+]
 
 
 def send(serial_connection, command, *args):
@@ -15,8 +36,12 @@ def send(serial_connection, command, *args):
 
 
 def pour(serial_connection):
-    logging.info("Pouring...")
-    send(serial_connection, "POUR", *["20"] * 7)
+    now = datetime.datetime.now()
+    drink = DRINKS[now.minute % 4]
+
+    logging.info(f"Pouring... {drink}")
+    args = (str(arg) for arg in drink)
+    send(serial_connection, "POUR", *args)
 
 
 def main():
