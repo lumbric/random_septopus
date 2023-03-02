@@ -1,3 +1,4 @@
+import math
 import time
 import logging
 import serial
@@ -37,7 +38,12 @@ def send(serial_connection, command, *args):
 
 def pour(serial_connection):
     now = datetime.datetime.now()
-    drink = DRINKS[now.minute % 4]
+    hourly_repetitions = math.ceil(60 / len(DRINKS))
+    if 60 % len(DRINKS) != 0:
+        logging.warning(
+            f"number of drinks {len(DRINKS)} not a divider of 60, will skip some drinks"
+        )
+    drink = DRINKS[now.minute % hourly_repetitions]
 
     logging.info(f"Pouring... {drink}")
     args = (str(arg) for arg in drink)
