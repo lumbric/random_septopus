@@ -84,6 +84,8 @@ def main_loop(serial_connection):
     commands = []
     last_idle_logmsg = 0
 
+    poured = False
+
     while True:
         IDLE_LOG_MSG_INTERVAL = 2
         if time.time() - last_idle_logmsg > IDLE_LOG_MSG_INTERVAL:
@@ -102,9 +104,12 @@ def main_loop(serial_connection):
 
                 command_parts = command.split(" ")
 
-                if command_parts[0] == "READY" and int(command_parts[2]) == 1:
+                if poured and command_parts[0] == "READY" and int(command_parts[2]) == 0:
+                    ...
+                elif command_parts[0] == "READY" and int(command_parts[2]) == 1:
                     # ready and cup there
                     pour(serial_connection)
+                    poured = True
 
             time.sleep(20e-3)
 
