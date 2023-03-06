@@ -105,8 +105,8 @@ def main_loop(serial_connection):
                 command_parts = command.split(" ")
 
                 if poured and command_parts[0] == "READY" and int(command_parts[2]) == 0:
-                    ...
-                elif command_parts[0] == "READY" and int(command_parts[2]) == 1:
+                    poured = False
+                if not poured and command_parts[0] == "READY" and int(command_parts[2]) == 1:
                     # ready and cup there
                     pour(serial_connection)
                     poured = True
